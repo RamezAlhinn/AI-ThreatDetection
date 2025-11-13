@@ -11,7 +11,7 @@ Orchestrates the threat detection pipeline:
 from typing import List, Dict, Any
 from datetime import datetime
 
-from .llm_client import create_client
+from llm_client import create_client
 
 
 class ThreatDetectionAgent:

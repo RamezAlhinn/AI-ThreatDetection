@@ -14,7 +14,7 @@ import requests
 from typing import Optional, Dict, Any
 from datetime import datetime
 
-from .config import settings, is_mock_mode, has_api_key
+from config import settings, is_mock_mode, has_api_key
 
 
 class LLMClient:

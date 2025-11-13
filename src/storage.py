@@ -150,6 +150,6 @@ def create_store(storage_path: Optional[str] = None) -> PredictionStore:
     Returns:
         PredictionStore instance
     """
-    from .config import settings
+    from config import settings
     path = storage_path or settings.storage_path
     return PredictionStore(storage_path=path)
