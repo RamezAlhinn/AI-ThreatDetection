@@ -375,12 +375,12 @@ def render_quality_tab():
             # Confusion matrix
             st.subheader("🔀 Confusion Matrix")
             st.markdown("*Rows = True Label, Columns = Predicted Label*")
-            
+
             confusion = summary['confusion_matrix']
             confusion_df = pd.DataFrame(confusion).T
-            
+
             st.dataframe(
-                confusion_df.style.background_gradient(cmap='YlOrRd', axis=None),
+                confusion_df,
                 use_container_width=True
             )
             
