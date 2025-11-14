@@ -196,24 +196,27 @@ def render_demo_tab():
         for idx, result in enumerate(results):
             prediction = result['prediction']
             
-            # Color based on threat level
+            # Color based on threat level - stronger colors for visibility
             if prediction == 'malicious':
                 color = "🚨"
-                bg_color = "#ffebee"
+                bg_color = "#ffcdd2"  # Strong red
+                border_color = "#e53935"
             elif prediction == 'suspicious':
                 color = "⚠️"
-                bg_color = "#fff9e6"
+                bg_color = "#fff59d"  # Strong yellow
+                border_color = "#fbc02d"
             else:
                 color = "✅"
-                bg_color = "#e8f5e9"
+                bg_color = "#a5d6a7"  # Strong green
+                border_color = "#43a047"
             
             with st.container():
                 st.markdown(f"""
-                <div style="background-color: {bg_color}; padding: 15px; border-radius: 5px; margin-bottom: 10px;">
-                    <h4>{color} {prediction.upper()} (Confidence: {result['confidence']:.0%})</h4>
-                    <p><strong>Log:</strong> {result['log']}</p>
-                    <p><strong>Reason:</strong> {result['explanation']}</p>
-                    <p><strong>Action:</strong> {result['recommended_action']}</p>
+                <div style="background-color: {bg_color}; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 5px solid {border_color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h4 style="margin-top: 0; color: #333;">{color} {prediction.upper()} (Confidence: {result['confidence']:.0%})</h4>
+                    <p style="margin: 8px 0;"><strong>Log:</strong> {result['log']}</p>
+                    <p style="margin: 8px 0;"><strong>Reason:</strong> {result['explanation']}</p>
+                    <p style="margin: 8px 0; margin-bottom: 0;"><strong>Action:</strong> {result['recommended_action']}</p>
                 </div>
                 """, unsafe_allow_html=True)
         
