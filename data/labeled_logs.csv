@@ -1,0 +1,21 @@
+id,log,true_label
+1,"2024-01-15 10:23:41 INFO user=alice action=login ip=192.168.1.100 status=success",benign
+2,"2024-01-15 10:24:15 INFO user=bob action=file_access resource=/documents/report.pdf ip=192.168.1.101 status=success",benign
+3,"2024-01-15 10:25:03 WARN user=charlie action=login ip=203.0.113.45 status=failed reason=invalid_password attempts=1",benign
+4,"2024-01-15 10:25:33 WARN user=charlie action=login ip=203.0.113.45 status=failed reason=invalid_password attempts=2",suspicious
+5,"2024-01-15 10:26:01 ERROR user=charlie action=login ip=203.0.113.45 status=failed reason=invalid_password attempts=5",malicious
+6,"2024-01-15 10:27:12 INFO user=alice action=logout ip=192.168.1.100 status=success",benign
+7,"2024-01-15 10:28:45 WARN user=admin action=config_change resource=/etc/firewall.conf ip=10.0.0.5 status=success",suspicious
+8,"2024-01-15 10:30:22 ERROR user=unknown action=sql_query query=""SELECT * FROM users WHERE '1'='1'"" ip=198.51.100.42 status=blocked",malicious
+9,"2024-01-15 10:31:10 INFO user=david action=login ip=192.168.1.102 status=success",benign
+10,"2024-01-15 10:32:05 CRITICAL user=root action=privilege_escalation ip=203.0.113.67 status=success command=""chmod 777 /etc/shadow""",malicious
+11,"2024-01-15 10:33:18 INFO user=bob action=file_access resource=/home/bob/notes.txt ip=192.168.1.101 status=success",benign
+12,"2024-01-15 10:35:44 WARN user=scanner action=port_scan ip=198.51.100.88 ports=22,23,80,443,3306,8080 status=detected",malicious
+13,"2024-01-15 10:37:29 ERROR user=system action=file_access resource=/etc/passwd ip=203.0.113.99 status=unauthorized",suspicious
+14,"2024-01-15 10:38:51 INFO user=alice action=login ip=192.168.1.100 status=success",benign
+15,"2024-01-15 10:40:12 CRITICAL user=www-data action=code_execution payload=""<?php system($_GET['cmd']); ?>"" ip=198.51.100.123 status=blocked",malicious
+16,"2024-01-15 11:15:22 INFO user=eve action=login ip=192.168.1.105 status=success",benign
+17,"2024-01-15 11:16:33 WARN user=admin action=user_creation username=backdoor ip=10.0.0.5 status=success",suspicious
+18,"2024-01-15 11:20:45 ERROR user=anonymous action=directory_traversal path=""../../../../etc/passwd"" ip=198.51.100.200 status=blocked",malicious
+19,"2024-01-15 11:22:10 INFO user=frank action=file_access resource=/public/readme.txt ip=192.168.1.110 status=success",benign
+20,"2024-01-15 11:25:30 CRITICAL user=guest action=buffer_overflow payload=""%x%x%x%x"" ip=203.0.113.150 status=detected",malicious
